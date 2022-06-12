@@ -1,0 +1,65 @@
+
+version: 2
+
+models:
+  - name: stg_addresses
+    description: "Addresses"
+    columns:
+      - name: address_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_events
+    description: "Events"
+    columns:
+      - name: event_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_order_items
+    description: "Order Items"
+    columns:
+      - name: order_id
+        description: "The primary key for this table"
+        tests:
+          - not_null
+
+  - name: stg_orders
+    description: "Orders"
+    columns:
+      - name: order_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_products
+    description: "Products"
+    columns:
+      - name: product_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_promos
+    description: "Promos"
+    columns:
+      - name: promo_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_users
+    description: "Users"
+    columns:
+      - name: user_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
