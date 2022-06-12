@@ -1,13 +1,14 @@
->>>How many users do we have?
+How many users do we have?
 
-    SELECT COUNT(DISTINCT user_id)
-    FROM dbt_paul_g.stg_users;
+>>>    SELECT COUNT(DISTINCT user_id)
+>>>    FROM dbt_paul_g.stg_users;
 
->>> 130
+130
 
 
->>>On average, how many orders do we receive per hour?
-SELECT 
+On average, how many orders do we receive per hour?
+
+>>>SELECT 
     SUM(orders_per_hour) / 24 as avg_orders_per_hour
 FROM (
 SELECT 
@@ -20,12 +21,12 @@ GROUP BY
 ORDER BY
   hour ASC) AS orders_per_hour;
 
->>>15.04
+15.04
 
 
->>>On average, how long does an order take from being placed to being delivered?
+On average, how long does an order take from being placed to being delivered?
 
-SELECT avg(hours) as avg_time_to_deliv_hrs 
+>>>SELECT avg(hours) as avg_time_to_deliv_hrs 
 FROM (
 SELECT 
   order_id, 
@@ -36,11 +37,11 @@ SELECT
 FROM dbt_paul_g.stg_orders
 WHERE status='delivered') as time_in_hours
 
->>> 93.4 hours 
+93.4 hours 
 
 How many users have only made one purchase? Two purchases? Three+ purchases?
 
-SELECT
+>>>SELECT
   CASE 
     WHEN order_count=1 THEN '1-One Purchase'
     WHEN order_count=2 THEN '2-Two Purchases'
@@ -55,16 +56,16 @@ SELECT
     GROUP BY user_id) as _purchase_count
   GROUP BY purchase_segments
 
-  >>>1-One Purchase     25
-  >>>2-Two Purchases    28
-  >>>3-Three+ Purchases 71
+  1-One Purchase     25
+  2-Two Purchases    28
+  3-Three+ Purchases 71
 
 
 Note: you should consider a purchase to be a single order. In other words, if a user places one order for 3 products, they are considered to have made 1 purchase.
 
->>>On average, how many unique sessions do we have per hour?
+On average, how many unique sessions do we have per hour?
 
-with sess_per_hr(unq_sessions, day_hour) AS (
+>>>with sess_per_hr(unq_sessions, day_hour) AS (
 SELECT
   count(distinct session_id) as unq_sessions,
   day_hour
@@ -81,7 +82,7 @@ GROUP BY
   day_hour
 )
 
-SELECT avg(unq_sessions)
+>>>SELECT avg(unq_sessions)
 FROM sess_per_hr
 
->>>16.33
+16.33
