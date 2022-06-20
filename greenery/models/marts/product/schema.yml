@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: fact_page_views
+    columns:
+      - name: page_url
+        tests: 
+          - unique
+          - not_null
+      - name: page_views
+        tests: 
+          - positive_value
+      - name: last_opened_utc

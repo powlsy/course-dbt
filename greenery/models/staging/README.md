@@ -86,3 +86,33 @@ GROUP BY
 FROM sess_per_hr
 
 16.33
+
+
+=====
+Week 2
+
+Rate79,8%
+
+```
+WITH all_users AS 
+(SELECT user_id, count(created_at_utc) as num_times_odered
+FROM dbt_paul_g.stg_events
+WHERE event_type='checkout'
+GROUP BY user_id
+),
+
+
+totals as
+(SELECT 
+  (SELECT count(user_id)
+FROM all_users
+WHERE num_times_odered >1 
+) as ordered_more_than_1_time,
+ COUNT(user_id) as total
+FROM 
+all_users)
+
+SELECT 
+  CAST (ordered_more_than_1_time as decimal) / total as rate
+FROM
+  totals

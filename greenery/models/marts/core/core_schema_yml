@@ -1,0 +1,131 @@
+version: 2
+
+models:
+  - name: int_order_products
+    columns:
+    - name: order_id
+      tests:
+        - unique
+        - not_null
+        - relationships:
+            to: ref('stg_orders')
+            field: order_id
+    - name: num_products
+      tests:
+        - not_null
+        - positive_value
+    - name: num_items
+      tests:
+        - not_null
+        - positive_value
+
+  - name: fact_orders
+    columns: 
+    - name: order_id
+      tests:
+        - unique
+        - not_null
+        - relationships:
+            to: ref('stg_orders')
+            field: order_id
+    - name: user_id
+      tests:
+        - not_null
+        - relationships:
+            to: ref('stg_users')
+            field: user_id
+    - name: promo_id
+      tests:
+        - relationships:
+            to: ref('stg_promos')
+            field: promo_id
+    - name: address_id
+      tests:
+        - not_null
+        - relationships:
+            to: ref('stg_addresses')
+            field: address_id
+    - name: has_promo
+      tests:
+        - accepted_values: 
+            values: [0, 1]
+    - name: order_placed_utc
+      tests: 
+        - not_null
+    - name: order_cost_dollars
+      tests:
+        - not_null
+    - name: shipping_cost_dollars
+      tests:
+        - not_null
+    - name: order_total_dollars
+      tests:
+        - not_null
+    - name: tracking_id
+      tests:
+        - unique
+    - name: shipping_service
+    - name: estimated_delivery_at_utc
+    - name: delivered_at_utc
+    - name: estimated_days_to_deliver
+    - name: days_to_deliver
+    - name: status
+      tests:
+        - not_null
+    - name: promo_discount_rate
+      tests:
+        - positive_value
+    - name: num_products
+      tests:
+        - not_null
+        - positive_value
+    - name: num_items
+      tests:
+        - not_null
+        - positive_value
+
+  - name: dim_products
+    columns:
+      - name: product_id
+        tests: 
+          - unique
+          - not_null
+      - name: product_name
+        tests: 
+          - not_null
+      - name: price_dollars
+        tests: 
+          - not_null 
+          - positive_value
+      - name: inventory
+        tests:
+          - not_null
+          - positive_value
+ 
+  - name: dim_users
+    columns:
+      - name: user_id
+        tests: 
+          - unique
+          - not_null
+      - name: first_name
+        tests: 
+          - not_null
+      - name: last_name
+        tests: 
+          - not_null
+      - name: email
+        tests: 
+          - unique
+          - not_null
+      - name: phone_number
+        tests: 
+          - unique
+          - not_null
+      - name: created_at_utc
+      - name: updated_at_utc
+      - name: street_address
+      - name: zip
+      - name: state
+      - name: country
+ 
