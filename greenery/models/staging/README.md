@@ -1,8 +1,8 @@
 How many users do we have?
-
->>>    SELECT COUNT(DISTINCT user_id)
->>>    FROM dbt_paul_g.stg_users;
-
+```
+SELECT COUNT(DISTINCT user_id)
+FROM dbt_paul_g.stg_users;
+```
 130
 
 
