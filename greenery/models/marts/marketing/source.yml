@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+
+  - name: tutorial 
+    schema: public 
+    database: dbt 
+
+    quoting:
+      database: false
+      schema: false
+      identifier: false
+
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 48, period: hour}
+
+    tables:
+      - name: fact_user_order
+        description: Order info at user level

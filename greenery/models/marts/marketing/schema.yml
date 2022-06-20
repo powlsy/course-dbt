@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: fact_user_order
+    columns:
+      - name: user_id
+        tests: 
+          - unique
+          - not_null
+      - name: zip
+        tests: 
+          - not_null
+      - name: num_orders
+        tests: 
+          - positive_value    
+      - name: avg_num_products
+        tests:
+          - positive_value
+      - name: avg_price_total_usd
+        tests: 
+          - positive_value
+      - name: total_items_purchased
+        tests:
+          - positive_value
+      - name: total_spent_usd
+        tests:  
+          - positive_value
+      - name: first_order_placed_utc
+      - name: last_order_placed_utc
