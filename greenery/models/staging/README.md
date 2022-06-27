@@ -116,3 +116,68 @@ SELECT
   CAST (ordered_more_than_1_time as decimal) / total as rate
 FROM
   totals
+```
+
+=====
+Week 3
+
+What is our overall conversion rate?
+
+```
+select SUM(order_placed)::float/ COUNT(*)*100 as conversion_rate
+from dbt_paul_g.fact_user_session
+```
+
+62.45
+
+
+What is our conversion rate by product?
+
+```
+select 
+dim_products.product_name
+, ROUND(COUNT(stg_order_items.order_id)::float/COUNT(DISTINCT int_session_product.session_id)::float*100) as conv_rate
+from dbt_paul_g.int_session_product
+join dbt_paul_g.dim_products
+using (product_id)
+join dbt_paul_g.fact_user_session
+using (session_id)
+left join dbt_paul_g.stg_order_items
+on int_session_product.product_id = stg_order_items.product_id
+and fact_user_session.order_id = stg_order_items.order_id
+group by 1
+ORDER BY 2 DESC
+```
+
+product_name	conv_rate
+String of pearls	61
+Arrow Head	56
+Cactus	55
+Bamboo	54
+ZZ Plant	54
+Rubber Plant	52
+Calathea Makoyana	51
+Monstera	51
+Fiddle Leaf Fig	50
+Majesty Palm	49
+Aloe Vera	49
+Devil's Ivy	49
+Jade Plant	48
+Philodendron	48
+Pilea Peperomioides	47
+Dragon Tree	47
+Spider Plant	47
+Money Tree	46
+Bird of Paradise	45
+Orchid	45
+Ficus	43
+Birds Nest Fern	42
+Pink Anthurium	42
+Peace Lily	41
+Boston Fern	41
+Alocasia Polly	41
+Snake Plant	40
+Ponytail Palm	40
+Angel Wings Begonia	39
+Pothos	34
+

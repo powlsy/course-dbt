@@ -13,11 +13,11 @@ models:
     - name: num_products
       tests:
         - not_null
-        - positive_value
+        - positive_values
     - name: num_items
       tests:
         - not_null
-        - positive_value
+        - positive_values
 
   - name: fact_orders
     columns: 
@@ -78,7 +78,7 @@ models:
     - name: num_products
       tests:
         - not_null
-        - positive_value
+        - positive_values
     - name: num_items
       tests:
         - not_null
@@ -96,7 +96,7 @@ models:
       - name: price_dollars
         tests: 
           - not_null 
-          - positive_value
+          - positive_values
       - name: inventory
         tests:
           - not_null

@@ -18,3 +18,7 @@ sources:
     tables:
       - name: fact_user_order
         description: Order info at user level
+      - name: fact_user_session
+        description: Session info at user level
+      - name: int_session_product
+        description: Session x product

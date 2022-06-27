@@ -12,18 +12,26 @@ models:
           - not_null
       - name: num_orders
         tests: 
-          - positive_value    
+          - positive_values 
       - name: avg_num_products
         tests:
-          - positive_value
+          - positive_values
       - name: avg_price_total_usd
         tests: 
-          - positive_value
+          - positive_values
       - name: total_items_purchased
         tests:
-          - positive_value
+          - positive_values
       - name: total_spent_usd
         tests:  
-          - positive_value
+          - positive_values
       - name: first_order_placed_utc
       - name: last_order_placed_utc
+  - name: fact_user_session
+    columns:
+      - name: user_id
+        tests: 
+          - unique
+          - not_null
+  - name: int_session_product
+   

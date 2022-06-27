@@ -9,5 +9,5 @@ models:
           - not_null
       - name: page_views
         tests: 
-          - positive_value
+          - positive_values
       - name: last_opened_utc
