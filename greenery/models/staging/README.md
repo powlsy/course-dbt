@@ -150,8 +150,8 @@ group by 1
 ORDER BY 2 DESC
 ```
 
-product_name	conv_rate
-String of pearls	61
+product_name | conv_rate
+String of pearl | 61
 Arrow Head	56
 Cactus	55
 Bamboo	54
