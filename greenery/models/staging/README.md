@@ -150,35 +150,36 @@ group by 1
 ORDER BY 2 DESC
 ```
 
-product_name | conv_rate
-String of pearl | 61
-Arrow Head	56
-Cactus	55
-Bamboo	54
-ZZ Plant	54
-Rubber Plant	52
-Calathea Makoyana	51
-Monstera	51
-Fiddle Leaf Fig	50
-Majesty Palm	49
-Aloe Vera	49
-Devil's Ivy	49
-Jade Plant	48
-Philodendron	48
-Pilea Peperomioides	47
-Dragon Tree	47
-Spider Plant	47
-Money Tree	46
-Bird of Paradise	45
-Orchid	45
-Ficus	43
-Birds Nest Fern	42
-Pink Anthurium	42
-Peace Lily	41
-Boston Fern	41
-Alocasia Polly	41
-Snake Plant	40
-Ponytail Palm	40
-Angel Wings Begonia	39
-Pothos	34
+| product_name      | conv_rate |
+| ----------- | ----------- |
+| String of pearl| 61       |
+| Arrow Head|	56
+|Cactus|	55
+|Bamboo|	54
+|ZZ Plant|	54
+|Rubber Plant|	52
+|Calathea Makoyana|	51
+|Monstera	|51
+|Fiddle Leaf Fig|	50
+|Majesty Palm|	49
+|Aloe Vera|	49
+|Devil's Ivy|	49
+|Jade Plant|	48
+|Philodendron|	48
+|Pilea Peperomioides|	47
+|Dragon Tree|	47
+|Spider Plant|	47
+|Money Tree|	46
+|Bird of Paradise|	45
+|Orchid|	45
+|Ficus|	43
+|Birds Nest Fern|	42
+|Pink Anthurium|	42
+|Peace Lily|	41
+|Boston Fern|	41
+|Alocasia Polly|	41
+|Snake Plant|	40
+|Ponytail Palm|	40
+|Angel Wings Begonia|	39
+|Pothos|	34
 
