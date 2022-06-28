@@ -117,7 +117,6 @@ SELECT
 FROM
   totals
 ```
-<<<<<<< HEAD
 
 =====
 Week 3

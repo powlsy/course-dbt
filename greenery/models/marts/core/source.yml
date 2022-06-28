@@ -24,3 +24,6 @@ sources:
         description: Order level summary
       - name: int_order_products
         description: Roll up of a single order to overall counts
+  
+      - name: int_mask_emails
+        description: user id and masked emails
